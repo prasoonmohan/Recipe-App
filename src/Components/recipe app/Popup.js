@@ -16,7 +16,9 @@ function Popup( {closePopup,currentDish,popupDishes} ) {
     <div className='popup-content-inner'>
     <div className="popup-header">
     <img src={item.strMealThumb} />
+    
     </div>
+    <h5 className="popup-header-category">{item.strCategory}</h5>
       <h2>{item.strMeal}</h2>
     </div>
   )
