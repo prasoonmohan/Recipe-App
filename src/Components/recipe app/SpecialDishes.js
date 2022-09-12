@@ -13,7 +13,7 @@ function SpecialDishes() {
 
 
   // add to cart
-  const [addToCart,setAddToCart] = useState(' https://images.pexels.com/photos/4226869/pexels-photo-4226869.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+  const [addToCart,setAddToCart] = useState([ ])
 
 
   // popup dish
@@ -52,9 +52,20 @@ let [currentDish,setCurrentDish] = useState('')
 
   // add to cart
   const addToCartHandler =(cartImg,cartTitle)=>{
-    setAddToCart(cartImg)
+    setAddToCart(
+      
+      [
+        ...addToCart,
+        {
+          "img" : cartImg ,
+          "title" : cartTitle
+        }
+      ]
+    )
+    
     setShowPopUp(false)
   }
+  
 
   // rendering...
   return (
@@ -76,7 +87,9 @@ let [currentDish,setCurrentDish] = useState('')
 
 
       <div className="container">
+      {/* add to cart */}
       <AddToCart addToCart={addToCart}/>
+
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>
           <p>
