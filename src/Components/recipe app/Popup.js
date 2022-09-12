@@ -6,6 +6,7 @@ import { BoxIconElement } from 'boxicons'
 
 // new method to define props without using prop.
 function Popup( {closePopup,currentDish,popupDishes} ) {
+  console.log(popupDishes)
 
   let popupDishDetails = popupDishes.filter((menuItem)=>{
     return (
@@ -16,10 +17,17 @@ function Popup( {closePopup,currentDish,popupDishes} ) {
     <div className='popup-content-inner'>
     <div className="popup-header">
     <img src={item.strMealThumb} />
-    
-    </div>
     <h5 className="popup-header-category">{item.strCategory}</h5>
+    </div>
       <h2>{item.strMeal}</h2>
+     <ul className="dish-ingredients">
+     <li>{item.strIngredient1}</li>
+      <li>{item.strIngredient2}</li>
+      <li>{item.strIngredient3}</li>
+      <li>{item.strIngredient4}</li>
+      
+     
+     </ul>
     </div>
   )
 })

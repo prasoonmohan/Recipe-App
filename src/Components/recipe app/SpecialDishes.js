@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
 
-function SpecialDishes(props) {
+// importing menu context
+import { AllMenuContext } from './Menus';
+
+function SpecialDishes() {
+
+  // define usecontect in to a variable
+  const allMenus = useContext(AllMenuContext)
+
 
   // popup dish
 let [currentDish,setCurrentDish] = useState('')
@@ -23,7 +30,7 @@ let [currentDish,setCurrentDish] = useState('')
 
   // special dishes...
   let maxDishes = 8;
-  let specialMenus = props.specialDishes.map((menuItem, index) => {
+  let specialMenus = allMenus.map((menuItem, index) => {
     if (index < maxDishes) {
       return (
         // re-used componenst
@@ -50,8 +57,10 @@ let [currentDish,setCurrentDish] = useState('')
       currentDish={currentDish}
       
        // pop up dish details
-       popupDishes={props.specialDishes}
+       popupDishes={allMenus}
       />}
+
+
       <div className="container">
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>

@@ -3,6 +3,9 @@ import Hero from "./Hero";
 import SpecialDishes from "./SpecialDishes";
 import FilteredDishes from "./FilteredDishes";
 
+// named export
+export const AllMenuContext = React.createContext()
+
 function Menus() {
 
   // for all menus
@@ -57,7 +60,10 @@ function Menus() {
         
       </div>
       <Hero />
-      {!loading ? (<SpecialDishes specialDishes={menu} />) : <div className="loader">
+
+      {/* exporting context */}
+      <AllMenuContext.Provider value={menu}>
+      {!loading ? (<SpecialDishes />) : <div className="loader">
       <h1>Loading...</h1></div>}
       {!loading ? <FilteredDishes 
       categories = {categorieData} 
@@ -65,9 +71,10 @@ function Menus() {
       oneDish={oneDish} 
       setOneDish={setOneDish}
       /> : null}
-      
+      </AllMenuContext.Provider>
     </div>
   );
 }
 
+// default export
 export default Menus;

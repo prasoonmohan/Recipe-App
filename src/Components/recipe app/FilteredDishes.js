@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import Pagination from "./Pagination";
 import CardDish from "./CardDish";
+import Popup from "./Popup";
+
+// importing all menu context
+import { AllMenuContext } from "./Menus";
 
 function FilteredDishes(props) {
-  // for all menus
-  let [allMenus, setAllMenus] = useState(props.allMenus);
+  // define a variable for asign value of useContext
+  let allMenus = useContext(AllMenuContext)
 
   // for filterd dishes menus
   let [filteredDishes, setFilteredDishes] = useState([]);
@@ -28,11 +32,29 @@ function FilteredDishes(props) {
     indexOfLastDish
   );
 
+      // popup dish
+let [currentDish,setCurrentDish] = useState('')
+  // popup
+  let [showPopUp,setShowPopUp] = useState(false)
+  // show popup
+  function showPopUpHandler(popupDish){
+    setShowPopUp(true)
+    setCurrentDish(popupDish)
+  }
+  // close popup
+  function closePopUpHandler(){
+    setShowPopUp(false)
+  }
+
+
+
   // show dishes on default page of filterd dishes
   let maxItem = 4;
   let oneDishItem = props.oneDish.map((menuItem, index) => {
     if (index < maxItem) {
-      return <CardDish menuItem={menuItem} />;
+      return <CardDish menuItem={menuItem} 
+      
+      />;
     }
   });
 
@@ -47,7 +69,9 @@ function FilteredDishes(props) {
       .map((menuItem) => {
         return (
           // re-used components
-          <CardDish menuItem={menuItem} />
+          <CardDish menuItem={menuItem} 
+          // passing function through props
+          showpopup={showPopUpHandler}/>
         );
       });
     setFilteredDishes(filteredDish);
@@ -69,7 +93,21 @@ function FilteredDishes(props) {
 
   // rendering....
   return (
+    <>
+        
+       
     <div className="filtred-dishes">
+     { showPopUp && <Popup 
+
+      // close popup
+      closePopup={closePopUpHandler}
+
+       // popup dish
+       currentDish={currentDish}
+
+        // pop up dish details
+        popupDishes={props.allMenus}
+     /> }
       <div className="container">
         <div className="text-center">
           <h2>Choose your DISHES</h2>
@@ -105,6 +143,7 @@ function FilteredDishes(props) {
         />
       </div>
     </div>
+    </>
   );
 }
 
