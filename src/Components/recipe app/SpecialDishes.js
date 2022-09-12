@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
+import AddToCart from "./AddToCart";
 
 // importing menu context
 import { AllMenuContext } from './Menus';
@@ -9,6 +10,10 @@ function SpecialDishes() {
 
   // define usecontect in to a variable
   const allMenus = useContext(AllMenuContext)
+
+
+  // add to cart
+  const [addToCart,setAddToCart] = useState(' https://images.pexels.com/photos/4226869/pexels-photo-4226869.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 
 
   // popup dish
@@ -44,6 +49,13 @@ let [currentDish,setCurrentDish] = useState('')
     }
   });
 
+
+  // add to cart
+  const addToCartHandler =(cartImg,cartTitle)=>{
+    setAddToCart(cartImg)
+    setShowPopUp(false)
+  }
+
   // rendering...
   return (
     <section className="special-dishes">
@@ -58,10 +70,13 @@ let [currentDish,setCurrentDish] = useState('')
       
        // pop up dish details
        popupDishes={allMenus}
+
+       addToCartHandler={addToCartHandler}
       />}
 
 
       <div className="container">
+      <AddToCart addToCart={addToCart}/>
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>
           <p>
