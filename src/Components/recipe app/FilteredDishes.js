@@ -2,6 +2,7 @@ import React, { useState,useContext } from "react";
 import Pagination from "./Pagination";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
+import AddToCart from "./AddToCart";
 
 // importing all menu context
 import { AllMenuContext } from "./Menus";
@@ -15,6 +16,9 @@ function FilteredDishes(props) {
 
   // button active effect for filterd dishes
   let [activeDish, setActiveDish] = useState("Beef");
+
+  // add to cart
+  const [addToCart,setAddToCart] = useState([ ])
 
   // pagination
   let [currentPage, setcurrentPage] = useState(1);
@@ -91,6 +95,22 @@ let [currentDish,setCurrentDish] = useState('')
     );
   });
 
+  // add to cart
+  const addToCartHandler =(cartImg,cartTitle)=>{
+    setAddToCart(
+      
+      [
+        ...addToCart,
+        {
+          "img" : cartImg ,
+          "title" : cartTitle
+        }
+      ]
+    )
+    
+    setShowPopUp(false)
+  }
+
   // rendering....
   return (
     <>
@@ -107,8 +127,15 @@ let [currentDish,setCurrentDish] = useState('')
 
         // pop up dish details
         popupDishes={props.allMenus}
+
+        // add to cart
+        addToCartHandler={addToCartHandler}
      /> }
       <div className="container">
+
+        {/* add to cart */}
+        <AddToCart addToCart={addToCart}/>
+
         <div className="text-center">
           <h2>Choose your DISHES</h2>
           <p>

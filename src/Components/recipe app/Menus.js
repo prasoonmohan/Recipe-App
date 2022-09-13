@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
+
+// routing
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Hero from "./Hero";
 import SpecialDishes from "./SpecialDishes";
 import FilteredDishes from "./FilteredDishes";
-
+import Checkout from "./Checkout";
 // named export
-export const AllMenuContext = React.createContext()
+export const AllMenuContext = React.createContext();
 
 function Menus() {
-
   // for all menus
   const [menu, setMenu] = useState([]);
 
   // for menus categories
   const [categorieData, setCategorieData] = useState([]);
 
-  // loading effect 
-  const [loading,setLoading] = useState(true);
+  // loading effect
+  const [loading, setLoading] = useState(true);
 
   // set default dish in filterd dishes
-  const [oneDish,setOneDish] = useState([]);
+  const [oneDish, setOneDish] = useState([]);
 
   // get all menus
   async function getAllMenu() {
@@ -26,7 +28,7 @@ function Menus() {
     let responce = await fetch(API_URL);
     let data = await responce.json();
     setMenu(data.meals);
-    setLoading(false)
+    setLoading(false);
   }
   // get list by categories
   async function getAllCategories() {
@@ -41,9 +43,8 @@ function Menus() {
     const API_URL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef";
     let responce = await fetch(API_URL);
     let oneItem = await responce.json();
-    setOneDish(oneItem.meals)
+    setOneDish(oneItem.meals);
   }
-
 
   // calling all API
   useEffect(() => {
@@ -52,26 +53,45 @@ function Menus() {
     getOneDish();
   }, []);
 
-
   // rendering....
   return (
     <div>
-    <div className="hero-nav">
-        
-      </div>
-      <Hero />
+      <Router>
+        <div className="hero-nav"></div>
+        <Hero />
 
-      {/* exporting context */}
-      <AllMenuContext.Provider value={menu}>
-      {!loading ? (<SpecialDishes />) : <div className="loader">
-      <h1>Loading...</h1></div>}
-      {!loading ? <FilteredDishes 
-      categories = {categorieData} 
-      allMenus = {menu} 
-      oneDish={oneDish} 
-      setOneDish={setOneDish}
-      /> : null}
-      </AllMenuContext.Provider>
+        <Routes> 
+        
+          {/* page 1 */}
+          <Route
+            exact
+            path="/"
+            element={
+              // exporting context
+              <AllMenuContext.Provider value={menu}>
+                {!loading ? (
+                  <SpecialDishes />
+                ) : (
+                  <div className="loader">
+                    <h1>Loading...</h1>
+                  </div>
+                )}
+                {!loading ? (
+                  <FilteredDishes
+                    categories={categorieData}
+                    allMenus={menu}
+                    oneDish={oneDish}
+                    setOneDish={setOneDish}
+                  />
+                ) : null}
+              </AllMenuContext.Provider>
+            }
+          />
+
+          {/* page 2 */}
+          <Route exact path="/checkout" element={<Checkout />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

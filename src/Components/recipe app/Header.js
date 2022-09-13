@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,10 +10,10 @@ function Header() {
       <nav>
         <ul className="nav-section">
           <li>
-            <a href="">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="">Checkout</a>
+            <Link to="/checkout">Checkout</Link>
           </li>
         </ul>
       </nav>
