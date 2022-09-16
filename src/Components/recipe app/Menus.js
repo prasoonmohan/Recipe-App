@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 
 // routing
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Hero from "./Hero";
 import SpecialDishes from "./SpecialDishes";
 import FilteredDishes from "./FilteredDishes";
 import Checkout from "./Checkout";
+
+import { AppProvider } from "../../context/AppProvider";
+
 // named export
 export const AllMenuContext = React.createContext();
 
@@ -57,6 +61,8 @@ function Menus() {
   return (
     <div>
       <Router>
+      
+        <AppProvider >
         <div className="hero-nav"></div>
         <Hero />
 
@@ -91,6 +97,7 @@ function Menus() {
           {/* page 2 */}
           <Route exact path="/checkout" element={<Checkout />} />
         </Routes>
+        </AppProvider>
       </Router>
     </div>
   );
