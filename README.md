@@ -20,15 +20,14 @@
 
 <hr>
 
-![screenshot](public/preview.png)
+![screenshot](./assets/images/preview.png)
+
 
 ## 🚀 Overview
 
-- View the optimal layout for the app depending on their device's screen size.
 - Gets the details of the recipies of different dishes.
 - Search by category feature.
 - User can make favorite to the dishes they like. 
-- Researched `Components` in Ant Design and `Emmet` cheat sheats .
 
 <hr>
 
@@ -56,10 +55,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/hafizmp/the-recipe-app.git
+$ git clone (    )
 
 # Go into the repository
-$ cd disney-plus-clone
+$ cd projects
 
 # Install dependencies
 $ npm install
@@ -71,10 +70,11 @@ $ npm start
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
+
 ## 🚀 Links
 
-- Solution URL: [GitHub](https://github.com/hafizmp/the-recipe-app)
-- Live Site URL: [Food Diary](https://)
+- Solution URL: [GitHub](    )
+- Live Site URL: [Food Diary](    )
 
 <hr>
 
@@ -87,3 +87,21 @@ $ npm start
 
 [TheMealDB API]: https://img.shields.io/badge/TheMealDB%20API-1C3879?style=for-the-badge&logo=&logoColor=21E1E1
 [TheMealDB API-url]: https://www.themealdb.com/api.php
+
+
+## 🚀 About Me
+I'm a full stack developer...
+
+
+## 🛠 Skills
+Javascript, HTML, CSS...
+
+## 📬 Contact
+
+
+If you want to contact me, you can reach me through below handles.
+
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/prasoon-mohan//)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=blue)](https://twitter.com/mohan_prasoon)
+[![instagram](https://img.shields.io/badge/instagram-1DA1F2?style=for-the-badge&logo=instagram&logoColor=purple)](https://twitter.com/mohan_prasoon)
