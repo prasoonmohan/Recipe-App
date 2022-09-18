@@ -5,29 +5,32 @@ import {  createContext } from 'react';
 const dispatchContext = createContext();
 const stateContext = createContext();
 
-function AppProvider(props) {
-    console.log(props);
+function AppProvider({children}) {
+    
 
    const initialState = {
-        cartItem : [],
+        cartItem :  [],
     };
     const reduser = ( state , action ) =>{
-        // switch(){
-        //     case 1:
+      
+      switch(action.type){
+        case 'add_to_cart' : 
+        return { ...state, cartItem : [...state.cartItem , action.payload ]  }
 
-        //     default :
-        // }
+        default : 
+        return state;
+      }
     }
 
 let [state,dispatch] = useReducer(reduser,initialState)
 
 
   return (
-    <dispatchContext.provider value={dispatch}>
-    <stateContext.provider value={state}>
-        { props.children }
-    </stateContext.provider>
-    </dispatchContext.provider>
+    <dispatchContext.Provider value={dispatch}>
+    <stateContext.Provider value={state}>
+        { children }
+    </stateContext.Provider>
+    </dispatchContext.Provider>
   )
 }
 

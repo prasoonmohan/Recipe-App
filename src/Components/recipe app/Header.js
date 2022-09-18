@@ -9,7 +9,7 @@ function Header() {
       </a>
       <nav>
         <ul className="nav-section">
-          <li>
+          <li className="active">
             <Link to="/">Home</Link>
           </li>
           <li>
