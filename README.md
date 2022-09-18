@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="public/logo512.png" alt="Covid-19 Tracker" width="200" style="border-radius:10px"></a>
+ 
   <br>
   The Recipe App
   <br>
@@ -73,7 +73,7 @@ $ npm start
 
 ## 🚀 Links
 
-- Solution URL: [GitHub](    )
+- Solution URL: [GitHub]( https://github.com/prasoonmohan/Recipe-App-using-Reactjs )
 - Live Site URL: [Food Diary](    )
 
 <hr>
