@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // routing
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Footer from "./Footer";
 import Hero from "./Hero";
 import SpecialDishes from "./SpecialDishes";
 import FilteredDishes from "./FilteredDishes";
@@ -90,7 +91,9 @@ function Menus() {
                     setOneDish={setOneDish}
                   />
                 ) : null}
+                <Footer />
               </AllMenuContext.Provider>
+              
             }
           />
 
