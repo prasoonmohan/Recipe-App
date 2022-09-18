@@ -13,7 +13,7 @@
   <a href="#🚀-built-with">Build with</a> •
   <a href="#🚀-dependencies-used">Dependencies</a> •
   <a href="#🚀-how-to-use">How to use</a> •
-  <a href="#🚀-links">Live links</a>
+  <a href="https://recipe-app-flame-five.vercel.app/">Live links</a>
 </p>
 
 <h5 align="center">Don't forget to give a ⭐️ </h5>
@@ -74,7 +74,7 @@ $ npm start
 ## 🚀 Links
 
 - Solution URL: [GitHub]( https://github.com/prasoonmohan/Recipe-App-using-Reactjs )
-- Live Site URL: [Food Diary](    )
+- Live Site URL: [Tasty Layers](https://recipe-app-flame-five.vercel.app/)
 
 <hr>
 
